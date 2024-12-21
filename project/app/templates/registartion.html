@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h2>Registration Form</h2>
+        <form action="{% url 'registartiondata' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="name"> Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="pass" placeholder="Enter a password" required>
+
+            <label for="">cpass</label>
+            <input type="cpass" id="cpass" name="cpass" placeholder="Enter a password" required>
+          
+            <label for="password">contact</label>
+            <input type="contact" id="contact" name="contact" placeholder="Enter a password" required>
+
+            <label for="image">image</label>
+            <input type="file" accept=".png , .jpeg" id="image" name="image" required>
+
+            <label for="resume">resume</label>
+            <input type="file" id="resume" accept=".pdf, .docx " name="resume" required><input/>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

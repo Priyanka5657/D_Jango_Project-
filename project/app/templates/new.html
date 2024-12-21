@@ -1,0 +1,83 @@
+<!-- display_data.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        img {
+            max-width: 100px;
+            border-radius: 8px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>contact details</th>
+                <th>Image</th>
+                <th>Resume</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+                <tr>
+
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ item.stu_name }}</td>
+                    <td>{{ item.stu_email }}</td>
+                    <td>{{ item.stu_contact }}</td>
+                    <td>
+                            <img src="/media/{{ item.stu_image}}" alt="">
+                    </td>
+                    <td>
+                        
+                            <a href="/media/{{ item.stu_file }}" download>Download Resume</a>
+                    
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
